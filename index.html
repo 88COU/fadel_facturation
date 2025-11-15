@@ -14,12 +14,17 @@
       font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       background:#f2f6f8;
       margin:0;
       padding:28px;
       color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
+
+    /* Container */
     .sheet{
       max-width:var(--max-width);
       margin:0 auto;
@@ -28,125 +33,184 @@
       border-radius:10px;
       box-shadow:0 10px 30px rgba(15,23,42,0.06);
     }
+
+    /* Header */
     header{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
       border-bottom:1px solid #eef2f7;
       padding-bottom:14px;
       margin-bottom:14px;
-      text-align:center;
+      flex-wrap:wrap;
     }
-    .main-logo img {
-      height:70px;
-      object-fit:contain;
-      margin-bottom:6px;
-    }
-    .main-logo h1 {
-      font-size:22px;
-      color:var(--emerald);
-      margin:4px 0;
-      letter-spacing:0.5px;
-      font-weight:800;
-    }
-    .main-logo p {
-      color:var(--muted);
-      margin:2px 0;
-      font-size:13px;
-    }
-    .main-logo .ninea {
-      font-size:12px;
-      color:#6b7280;
-    }
-    .meta p{margin:2px 0;font-size:13px;color:var(--muted);text-align:right}
-    .two-col{display:flex;gap:12px;justify-content:space-between;margin:14px 0 8px;flex-wrap:wrap}
-    .card{background:var(--table-bg);padding:10px 12px;border-radius:8px;min-width:200px;flex:1}
-    .card b{display:block;margin-bottom:6px;color:#0f172a}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo img{height:64px; width:auto; object-fit:contain; border-radius:8px; background:rgba(0,0,0,0.02); padding:6px}
+    .company h1{margin:0; font-size:18px; color:var(--emerald); letter-spacing:0.4px}
+    .company p{margin:0;color:var(--muted); font-size:13px}
+    .meta p{ margin:2px 0; font-size:13px; color:var(--muted); text-align:right }
 
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:8px;
-      font-size:13px;
-      table-layout:fixed;
-    }
-    thead th{
-      text-align:left;
-      padding:12px 10px;
-      background:var(--emerald);
-      color:white;
-      font-weight:700;
-      font-size:13px;
-    }
-    thead th:nth-child(1){width:50%;}
-    thead th:nth-child(2){width:10%;}
-    thead th:nth-child(3){width:20%;}
-    thead th:nth-child(4){width:15%;}
-    thead th:nth-child(5){width:15%;}
+    /* Utilities */
+    .two-col{display:flex; gap:12px; justify-content:space-between; margin:14px 0 8px; flex-wrap:wrap}
+    .card{background:var(--table-bg); padding:10px 12px; border-radius:8px; min-width:200px; flex:1}
+    .card b{display:block; margin-bottom:6px; color:#0f172a}
 
-    tbody td{padding:10px;border-bottom:1px solid #e6eef2;vertical-align:middle;word-wrap:break-word;}
-    tbody tr:nth-child(even){background:#ffffff;}
-    tbody tr:nth-child(odd){background:#fbfbfb;}
-
-    input.cell{
-      width:100%;
-      border:none;
-      background:transparent;
-      font-size:13px;
-      padding:4px 6px;
-      outline:none;
-      white-space:normal;
-      word-break:break-word;
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 13px;
+      table-layout: fixed;
+      overflow:visible;
+    }
+    thead th {
+      text-align: left;
+      padding: 12px 10px;
+      background: var(--emerald);
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
     }
 
-    .right{text-align:right}
-    .center{text-align:center}
-    .action-btn{background:transparent;border:none;cursor:pointer;font-size:16px;padding:6px 8px;border-radius:6px}
-    .action-btn.del{background:#ff4d4d;color:white}
-    .action-btn.del:hover{opacity:0.9}
-    .controls{display:flex;justify-content:flex-end;gap:10px;margin-top:10px;flex-wrap:wrap}
-    .print-btn{background:var(--emerald);color:white;border:none;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700}
-    .print-btn.ghost{background:#f3fdfb;color:var(--emerald);border:1px solid rgba(0,153,153,0.12)}
-    .totals{margin-top:18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
-    .totals .left{color:var(--muted);font-size:13px}
-    .totals .right{min-width:260px;text-align:center}
-    .amount{font-size:20px;font-weight:800;color:var(--emerald);padding:10px 14px;border-radius:8px;background:linear-gradient(90deg,rgba(0,153,153,0.06),rgba(0,153,153,0.02));display:inline-block;box-shadow:0 6px 18px rgba(0,153,153,0.04)}
-    .amount-words{margin-top:6px;font-size:13px;color:#0f172a;font-weight:600}
+    tbody td {
+      padding: 10px;
+      border-bottom: 1px solid #e6eef2;
+      vertical-align: middle;
+      word-wrap: break-word;
+    }
 
-    footer{margin-top:26px;border-top:1px solid #eef2f7;padding-top:12px;color:#374151;font-size:12px;line-height:1.4}
-    @media print{
-      body{background:white;padding:0;}
-      .controls,.print-btn{display:none!important}
-      .sheet{box-shadow:none;border-radius:0;margin:0;padding:16mm}
-      th:last-child,td:last-child{display:none!important}
-      thead th{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    input.cell {
+      width: 100%;
+      border: none;
+      background: transparent;
+      font-size: 13px;
+      padding: 4px 6px;
+      outline: none;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    tbody tr:nth-child(even){ background:#ffffff }
+    tbody tr:nth-child(odd){ background:#fbfbfb }
+
+    .right{ text-align:right }
+    .center{ text-align:center }
+
+    input.cell.qty, input.cell.price { text-align:center }
+
+    .action-btn { background:transparent; border:none; cursor:pointer; font-size:16px; padding:6px 8px; border-radius:6px }
+    .action-btn.del { background:#ff4d4d; color:white }
+    .action-btn.del:hover { opacity:0.9 }
+
+    .controls { display:flex; justify-content:flex-end; gap:10px; margin-top:10px; flex-wrap:wrap }
+    .print-btn { background:var(--emerald); color:white; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; font-weight:700 }
+    .print-btn.ghost{ background:#f3fdfb; color:var(--emerald); border:1px solid rgba(0,153,153,0.12) }
+
+    .totals{ margin-top:18px; display:flex; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap }
+    .totals .left{ color:var(--muted); font-size:13px }
+    .totals .right{ min-width:260px; text-align:center }
+    .amount{ font-size:20px; font-weight:800; color:var(--emerald); padding:10px 14px; border-radius:8px;
+             background:linear-gradient(90deg, rgba(0,153,153,0.06), rgba(0,153,153,0.02)); display:inline-block; box-shadow:0 6px 18px rgba(0,153,153,0.04) }
+    .amount-words{ margin-top:6px; font-size:13px; color:#0f172a; font-weight:600 }
+
+    footer{ margin-top:26px; border-top:1px solid #eef2f7; padding-top:12px; color:#374151; font-size:12px; line-height:1.4 }
+
+    /* small visual helper for client fields */
+    .client-input { font-weight:700; border-bottom:1px dashed rgba(0,0,0,0.05); padding-bottom:2px; }
+
+    /* Column widths - desktop */
+    th:nth-child(1), td:nth-child(1) { width: 55%; white-space:normal; word-wrap:break-word; }
+    th:nth-child(2), td:nth-child(2) { width: 10%; text-align:center; }
+    th:nth-child(3), td:nth-child(3) { width: 15%; text-align:right; }
+    th:nth-child(4), td:nth-child(4) { width: 15%; text-align:center; }
+    th:nth-child(5), td:nth-child(5) { width: 8%; text-align:center; }
+
+    /* PDF MODE: force a stable "mobile-like" viewport for html2canvas */
+    .pdf-mode {
+      width: 600px !important;
+      max-width: 600px !important;
+      margin: 0 auto !important;
+      transform: none !important;
+    }
+    .pdf-mode img { image-rendering: crisp-edges; }
+
+    /* Responsive (mobile) - simplified and consolidated */
+    @media (max-width: 720px) {
+      header{ flex-direction:column; align-items:flex-start; gap:12px; }
+      .meta{ text-align:left; width:100% }
+      .amount{ font-size:18px; }
+      .sheet{ padding:18px; }
+      table { font-size:12px; }
+      th, td { padding:8px; }
+    }
+
+    @media (max-width: 600px) {
+      body { padding:8px }
+      .sheet { padding:12px; width:100% }
+      .logo img { height:48px }
+      .company h1 { font-size:16px }
+      .controls { gap:8px; justify-content:center }
+      .print-btn { width:100% }
+      /* Make table horizontally scrollable on very small screens */
+      table { display:block; width:100%; overflow:auto; -webkit-overflow-scrolling:touch; }
+      th, td { padding:6px; white-space:normal }
+      th:nth-child(1), td:nth-child(1) { width:65% !important; word-break:break-word }
+      /* hide action column on small screens */
+      th:nth-child(5), td:nth-child(5) { display:none !important; }
+      .totals { flex-direction:column; text-align:center }
+      .totals .right { width:100% }
+    }
+
+    /* Print styles */
+    @media print {
+      body{ background:white; padding:0; }
+      .controls, .print-btn { display:none !important }
+      .sheet{ box-shadow:none; border-radius:0; margin:0; padding:16mm; }
+      thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      th:last-child, td:last-child { display:none !important; } /* hide action column */
     }
   </style>
 </head>
 <body>
   <div class="sheet" id="facture-sheet">
+
     <div class="controls" id="controls">
-      <button class="print-btn ghost" id="btn-add">+ Ajouter un produit</button>
-      <button class="print-btn ghost" id="btn-clear">🧹 Réinitialiser</button>
-      <button class="print-btn" id="downloadPdf">⬇️ Télécharger PDF</button>
+      <button class="print-btn ghost" id="btn-add" title="Ajouter une ligne">+ Ajouter un produit</button>
+      <button class="print-btn ghost" id="btn-clear" title="Réinitialiser la facture">🧹 Réinitialiser</button>
+      <button class="print-btn" id="downloadPdf" title="Télécharger la facture en PDF">⬇️ Télécharger PDF</button>
     </div>
 
     <header>
-      <div class="main-logo">
-        <img src="logo.jpg" alt="Logo Fadel Digital" >
-        <h1>FADEL DIGITAL ELECTRONICS</h1>
-        <p>Dakar, Av Lamine Guèye • Tél : 77 299 05 00</p>
-        <p class="ninea">NINEA : 010840040</p>
+      <div class="logo">
+        <!-- gardé aux mêmes emplacements : logo.jpg -->
+        <img src="logo.jpg" alt="Logo FADEL DIGITAL" onerror="this.style.display='none'">
+        <div class="company">
+          <h1>FADEL DIGITAL ELECTRONICS</h1>
+          <p>Dakar, Av Lamine Guèye • Tél : 77 299 05 00</p>
+          <p style="margin-top:6px; font-size:12px; color:var(--muted)">NINEA : 010840040</p>
+        </div>
+      </div>
+
+      <div class="meta">
+        <p><strong>Facture N°</strong> : <input id="invoice-number" class="cell" style="width:140px" value="FD-1025-01"></p>
+        <p><strong>Date</strong> : <input id="invoice-date" class="cell" type="date"></p>
+        <p style="margin-top:8px"><strong>Facturé à :</strong> <input id="client-name" class="cell client-input" placeholder="Nom du client"></p>
+        <p>Tél : <input id="client-phone" class="cell" placeholder="Numéro du client"></p>
+        <p>Adresse : <input id="client-address" class="cell client-input" placeholder="Adresse du client"></p>
       </div>
     </header>
 
-    <div class="meta">
-      <p><strong>Facture N°</strong> : <input id="invoice-number" class="cell" style="width:140px" value="FD-1025-01"></p>
-      <p><strong>Date</strong> : <input id="invoice-date" class="cell" type="date"></p>
-      <p><strong>Facturé à :</strong> <input id="client-name" class="cell client-input" placeholder="Nom du client"></p>
-      <p>Tél : <input id="client-phone" class="cell" placeholder="Numéro du client"></p>
-      <p>Adresse : <input id="client-address" class="cell client-input" placeholder="Adresse du client"></p>
-    </div>
-
     <main>
-      <table id="items-table">
+      <div class="two-col">
+        <div class="card">
+          <b>Adresse boutique</b>
+          <div>Dakar, Avenue Lamine Guèye</div>
+        </div>
+      </div>
+
+      <table id="items-table" aria-label="Tableau des articles">
         <thead>
           <tr>
             <th>Désignation</th>
@@ -156,81 +220,336 @@
             <th class="center">Action</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          <!-- lignes ajoutées dynamiquement -->
+        </tbody>
       </table>
 
-      <div class="totals">
+      <div class="totals" aria-hidden="false">
         <div class="left">
           <div><strong>Total :</strong> <span id="total">0</span> FCFA</div>
-          <div style="margin-top:6px"><strong>Avance :</strong> <input id="avance" class="cell" style="width:120px" value="0"></div>
+          <div style="margin-top:6px"><strong>Avance versée :</strong> <input id="avance" class="cell" style="width:120px" value="0"></div>
         </div>
+
         <div class="right">
           <div class="amount" id="remaining-amount">0 FCFA</div>
           <div class="amount-words" id="amount-words">Zéro franc CFA</div>
         </div>
       </div>
 
-      <div style="margin-top:30px;text-align:right;">
-        <p style="font-weight:700;font-size:14px;color:#009999;margin-bottom:10px;">
+      <div style="margin-top:30px; text-align:right;">
+        <p style="font-weight:700; font-size:14px; color:#009999; margin-bottom:10px;">
           ✅ Garantie : 12 mois sur tous les produits achetés
         </p>
-        <img src="./cachet.jpg" alt="Cachet Fadel Digital Electronics" style="width:180px;opacity:0.85;">
-        <p style="margin-top:6px;font-weight:700;">Fadel Digital Electronics</p>
+
+        <!-- cachet reste au même emplacement : cachet.jpg -->
+        <img src="cachet.jpg" alt="Cachet Fadel Digital Electronics" style="width:180px; opacity:0.85;" onerror="this.style.display='none'">
+        <p style="margin-top:6px; font-weight:700;">Fadel Digital Electronics</p>
       </div>
 
       <footer>
-        <p style="font-weight:700;margin:0 0 8px 0">Conditions & garantie :</p>
-        <p>
+        <p style="font-weight:700; margin:0 0 8px 0">Conditions & garantie :</p>
+        <p style="margin:0 0 8px 0;">
           Les articles restent la propriété du vendeur jusqu'au paiement complet.<br/>
-          Tous nos produits sont garantis (Cette garantie ne couvre pas les détériorations causées par : un mauvais déplacement ou une mauvaise installation non conforme à la notice, les surtensions, les écrans cassés, ou les interventions non agréées).<br/>
-          Les petits matériels électriques (mixeurs, bouilloires, ventilateurs...) ne sont pas garantis.
+          Tous nos produits sont garantis (Cette garantie ne couvre pas les détériorations causées par : un mauvais déplacement ou une mauvaise installation non conforme à la notice, les sur ou sous tensions électriques, les écrans cassés, les interventions effectuées par des agents non agréés par la société.)<br/>
+          Les petits matériels électriques, tels que mixeurs, bouilloires, ventilateurs... ne sont pas garantis.
         </p>
-        <p style="color:var(--muted);font-size:12px;margin-top:8px">Merci pour votre confiance !</p>
+        <p style="color:var(--muted); font-size:12px; margin-top:8px">Merci pour votre confiance !</p>
       </footer>
     </main>
   </div>
 
-  <!-- JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
-  <script>
-    function fmt(n){return (n||0).toLocaleString('fr-FR');}
-    function parseNumber(s){return parseFloat(String(s).replace(/\s+/g,'').replace(/[^0-9\.\-]/g,''))||0;}
-    function numberToWordsFr(n){const u=["zéro","un","deux","trois","quatre","cinq","six","sept","huit","neuf"];if(n<10)return u[n];return n.toString();}
+  <!-- html2pdf (bundle) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    document.addEventListener("DOMContentLoaded",()=>{
-      const tbody=document.querySelector("#items-table tbody");
-      const totalEl=document.getElementById("total");
-      const resteEl=document.getElementById("remaining-amount");
-      const avance=document.getElementById("avance");
-      const words=document.getElementById("amount-words");
-      document.getElementById("btn-add").onclick=()=>{tbody.insertAdjacentHTML("beforeend",`<tr><td><input class="cell" placeholder="Désignation"></td><td><input class="cell qty" type="number" value="1"></td><td><input class="cell price" type="number" value="0"></td><td><input class="cell ref" placeholder="Réf."></td><td><button class="action-btn del">🗑</button></td></tr>`);refresh();}
-      tbody.addEventListener("click",e=>{if(e.target.classList.contains("del")){e.target.closest("tr").remove();refresh();}});
-      tbody.addEventListener("input",refresh);
-      avance.oninput=refresh;
-      function refresh(){
-        let total=0;
-        tbody.querySelectorAll("tr").forEach(tr=>{
-          const q=parseNumber(tr.querySelector(".qty")?.value);
-          const p=parseNumber(tr.querySelector(".price")?.value);
-          total+=q*p;
-        });
-        totalEl.textContent=fmt(total);
-        const rest=total-parseNumber(avance.value);
-        resteEl.textContent=fmt(rest)+" FCFA";
-        words.textContent=numberToWordsFr(rest)+" francs CFA";
+  <script>
+    /* ---------- utilitaires ---------- */
+    function fmt(n){ return (n||0).toLocaleString('fr-FR'); }
+    function parseNumber(str){
+      if(str === undefined || str === null) return 0;
+      return parseFloat(String(str).replace(/\s+/g,'').replace(/[^0-9\.\-]/g,'')) || 0;
+    }
+
+    function numberToWordsFr(n) {
+      const units = ["zéro","un","deux","trois","quatre","cinq","six","sept","huit","neuf"];
+      const teens = ["dix","onze","douze","treize","quatorze","quinze","seize","dix-sept","dix-huit","dix-neuf"];
+      const tens = ["","dix","vingt","trente","quarante","cinquante","soixante","soixante","quatre-vingt","quatre-vingt"];
+
+      n = Math.floor(Math.abs(Number(n)) || 0);
+
+      if (n < 10) return units[n];
+      if (n < 20) return teens[n - 10];
+
+      if (n < 100) {
+        let t = Math.floor(n / 10);
+        let u = n % 10;
+        if (t === 7 || t === 9) {
+          return tens[t] + (u > 0 ? "-" + teens[u] : "");
+        }
+        return tens[t] + (u === 1 ? "-et-un" : u > 0 ? "-" + units[u] : "");
       }
-      document.getElementById("downloadPdf").onclick=function(){
-        const element=document.getElementById("facture-sheet");
-        const opt={
-          margin:0.3,
-          filename:"Facture.pdf",
-          image:{type:"jpeg",quality:1},
-          html2canvas:{scale:2,useCORS:true,allowTaint:true,backgroundColor:"#fff"},
-          jsPDF:{unit:"in",format:"a4",orientation:"portrait"}
-        };
-        html2pdf().set(opt).from(element).save();
-      };
+
+      if (n < 1000) {
+        let h = Math.floor(n / 100);
+        let r = n % 100;
+        return (h > 1 ? units[h] + "-cent" : h === 1 ? "cent" : "") + (r > 0 ? " " + numberToWordsFr(r) : "");
+      }
+
+      if (n < 1000000) {
+        let th = Math.floor(n / 1000);
+        let r = n % 1000;
+        return (th > 1 ? numberToWordsFr(th) + " mille" : "mille") + (r > 0 ? " " + numberToWordsFr(r) : "");
+      }
+
+      if (n < 1000000000) {
+        let m = Math.floor(n / 1000000);
+        let r = n % 1000000;
+        return (m > 1 ? numberToWordsFr(m) + " millions" : "un million") + (r > 0 ? " " + numberToWordsFr(r) : "");
+      }
+
+      return n.toLocaleString('fr-FR');
+    }
+
+    /* ---------- gestion des lignes et totaux ---------- */
+    let tbody, totalEl, remainingEl, amountWordsEl, avanceEl, controls;
+    document.addEventListener('DOMContentLoaded', () => {
+      tbody = document.querySelector("#items-table tbody");
+      totalEl = document.getElementById("total");
+      remainingEl = document.getElementById("remaining-amount");
+      amountWordsEl = document.getElementById("amount-words");
+      avanceEl = document.getElementById("avance");
+      controls = document.getElementById("controls");
+
+      // boutons
+      document.getElementById('btn-add').addEventListener('click', () => addRow());
+      document.getElementById('btn-clear').addEventListener('click', clearAll);
+
+      // PDF
+      document.getElementById('downloadPdf').addEventListener('click', downloadPdf);
+
+      // load saved invoice if any
+      loadInvoice();
+
+      // refresh totals after load
+      refreshTotals();
+
+      // prevent Enter from submitting
+      window.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' && document.activeElement.tagName === 'INPUT'){
+          e.preventDefault();
+          refreshTotals();
+        }
+      });
     });
+
+    function escapeHtml(text){ return String(text||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    function createRow(item = {}) {
+      const tr = document.createElement("tr");
+
+      const designation = item.designation || "";
+      const qty = item.quantity !== undefined ? item.quantity : 1;
+      const price = item.unit_price !== undefined ? item.unit_price : 0;
+      const ref = item.reference || "";
+
+      tr.innerHTML = `
+        <td><input class="cell" data-field="designation" placeholder="Désignation" value="${escapeHtml(designation)}"></td>
+        <td class="center"><input class="cell qty" data-field="quantity" type="number" min="0" value="${qty}"></td>
+        <td class="right"><input class="cell price" data-field="price" type="number" min="0" value="${price}"></td>
+        <td class="center"><input class="cell ref" data-field="reference" placeholder="Réf." value="${escapeHtml(ref)}"></td>
+        <td class="center"><button class="action-btn del" title="Supprimer la ligne">🗑</button></td>
+      `;
+
+      // bouton supprimer
+      tr.querySelector(".action-btn.del").addEventListener("click", () => {
+        tr.remove();
+        saveInvoice();
+        refreshTotals();
+      });
+
+      // input → mise à jour
+      tr.querySelectorAll("input").forEach(inp => {
+        inp.addEventListener("input", () => {
+          saveInvoice();
+          refreshTotals();
+        });
+      });
+
+      return tr;
+    }
+
+    function addRow(item = {}) {
+      const r = createRow(item);
+      tbody.appendChild(r);
+      saveInvoice();
+      refreshTotals();
+      // Scroll only when there is overflow
+      if (tbody.scrollHeight > tbody.clientHeight) {
+        r.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    }
+
+    function clearAll(){
+      if(!confirm("Réinitialiser la facture ? Cela supprimera toutes les lignes et les données locales.")) return;
+      tbody.innerHTML = "";
+      document.getElementById("client-name").value = "";
+      document.getElementById("client-phone").value = "";
+      document.getElementById("client-address").value = "";
+      document.getElementById("invoice-number").value = "";
+      document.getElementById("invoice-date").value = "";
+      avanceEl.value = "0";
+      saveInvoice();
+      refreshTotals();
+    }
+
+    function refreshTotals(){
+      let total = 0;
+      tbody.querySelectorAll("tr").forEach(tr => {
+        const qty = parseNumber(tr.querySelector('input[data-field="quantity"]').value) || 0;
+        const price = parseNumber(tr.querySelector('input[data-field="price"]').value) || 0;
+        total += qty * price;
+      });
+      const avance = parseNumber(avanceEl.value) || 0;
+      const reste = total - avance;
+      totalEl.innerText = fmt(total);
+      remainingEl.innerText = fmt(reste) + " FCFA";
+      const words = numberToWordsFr(Math.max(0, Math.round(reste)));
+      amountWordsEl.innerText = (words ? (words.charAt(0).toUpperCase() + words.slice(1)) : "") + " francs CFA";
+    }
+
+    /* ---------- sauvegarde / restauration ---------- */
+    const STORAGE_KEY = "fadel_facture_v2";
+    function saveInvoice(){
+      try{
+        const data = {
+          meta: {
+            invoice_number: document.getElementById("invoice-number").value,
+            date: document.getElementById("invoice-date").value,
+            client_name: document.getElementById("client-name").value,
+            client_phone: document.getElementById("client-phone").value,
+            client_address: document.getElementById("client-address").value,
+            avance: avanceEl.value
+          },
+          items: Array.from(tbody.querySelectorAll("tr")).map(tr => ({
+            designation: tr.querySelector('input[data-field="designation"]').value,
+            quantity: parseNumber(tr.querySelector('input[data-field="quantity"]').value)||0,
+            unit_price: parseNumber(tr.querySelector('input[data-field="price"]').value)||0,
+            reference: tr.querySelector('input[data-field="reference"]').value
+          }))
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      }catch(e){ console.error('saveInvoice', e); }
+    }
+
+    function loadInvoice(){
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) {
+        // Optionally add a starter empty row for convenience
+        addRow();
+        return;
+      }
+      try {
+        const data = JSON.parse(raw);
+        document.getElementById("invoice-number").value = data.meta.invoice_number || "";
+        document.getElementById("invoice-date").value = data.meta.date || "";
+        document.getElementById("client-name").value = data.meta.client_name || "";
+        document.getElementById("client-phone").value = data.meta.client_phone || "";
+        document.getElementById("client-address").value = data.meta.client_address || "";
+        avanceEl.value = data.meta.avance || "0";
+        tbody.innerHTML = "";
+        (data.items || []).forEach(it => addRow(it));
+        // ensure at least one empty line
+        if ((data.items || []).length === 0) addRow();
+        refreshTotals();
+      } catch(e){ console.error("loadInvoice", e); addRow(); }
+    }
+
+    /* ---------- PDF export (improved to emulate mobile viewport) ---------- */
+    function sanitizeFileName(s){ return String(s||'client').trim().replace(/\s+/g,'_').replace(/[^\w.-]/g,''); }
+
+    function downloadPdf() {
+      try {
+        saveInvoice();
+        refreshTotals();
+
+        const clientName = document.getElementById("client-name").value.trim() || "client";
+        const filename = "Facture_" + sanitizeFileName(clientName) + ".pdf";
+
+        const sheet = document.getElementById("facture-sheet");
+        const controlsEl = document.getElementById("controls");
+        const actionCells = document.querySelectorAll("th:last-child, td:last-child");
+
+        // preserve previous inline display values
+        const prevDisplayControls = controlsEl.style.display || "";
+        const prevActions = Array.from(actionCells).map(el => el.style.display || "");
+
+        // hide controls and actions temporarily
+        controlsEl.style.display = "none";
+        actionCells.forEach(el => el.style.display = "none");
+
+        // add pdf-mode to force consistent width
+        sheet.classList.add("pdf-mode");
+
+        // html2pdf options - force html2canvas to render at width 600 (mobile-like)
+        const opt = {
+          margin: 10/72, // inches (approx) -> small margin
+          filename: filename,
+          image: { type: "jpeg", quality: 1 },
+          html2canvas: {
+            scale: 2,
+            width: 600,
+            windowWidth: 600,
+            scrollX: 0,
+            scrollY: 0,
+            useCORS: true,
+            backgroundColor: "#ffffff"
+          },
+          jsPDF: { unit: "pt", format: "a4", orientation: "portrait" },
+        };
+
+        // generate and save PDF
+        html2pdf().set(opt).from(sheet).save().then(() => {
+          // restore UI state
+          controlsEl.style.display = prevDisplayControls;
+          actionCells.forEach((el, i) => el.style.display = prevActions[i]);
+          sheet.classList.remove("pdf-mode");
+        }).catch(err => {
+          console.error("Erreur PDF :", err);
+          alert("Erreur lors de la génération du PDF.");
+          controlsEl.style.display = prevDisplayControls;
+          actionCells.forEach((el, i) => el.style.display = prevActions[i]);
+          sheet.classList.remove("pdf-mode");
+        });
+
+      } catch (e) {
+        console.error("Erreur downloadPdf:", e);
+        alert("Une erreur est survenue pendant la génération du PDF.");
+      }
+    }
+
+    /* ---------- Save on changes to avance and client info ---------- */
+    document.addEventListener('input', (e)=>{
+      if(e.target && (e.target.id === 'avance' || e.target.id==='client-name' || e.target.id==='client-phone' || e.target.id==='client-address' || e.target.id==='invoice-number' || e.target.id==='invoice-date')){
+        saveInvoice();
+        refreshTotals();
+      }
+    });
+
+    // small UX: add a new row when the user focuses the last row's designation and presses Tab
+    document.addEventListener('focusin', (e) => {
+      try {
+        if (e.target && e.target.matches && e.target.matches('input[data-field="designation"]')) {
+          const trs = tbody.querySelectorAll('tr');
+          if (trs.length && trs[trs.length-1].contains(e.target)) {
+            // last row designation focused -> ensure there's always an empty row below
+            const inputs = Array.from(trs[trs.length-1].querySelectorAll('input')).map(i => i.value.trim());
+            const allEmpty = inputs.every(v => v === '' || v === '0');
+            if (!allEmpty) addRow();
+          }
+        }
+      } catch (err) { /* ignore */ }
+    });
+
   </script>
 </body>
 </html>
